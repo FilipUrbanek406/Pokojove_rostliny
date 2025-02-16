@@ -2,6 +2,8 @@ package com.engeto.pokojoveRostliny;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class PlantManager {
@@ -22,7 +24,7 @@ public class PlantManager {
     }
 
     //získání kopie seznamu rostlin - nejsem si jistý, zda je to správně
-    public List<Plant> getPlants() {
+    public List<Plant> getCopyOfPlants() {
         return new ArrayList<>(plants);
     }
 
@@ -35,5 +37,15 @@ public class PlantManager {
             }
         }
         return plantsToWater;
+    }
+
+    // Seřazení podle názvu rostliny (výchozí řazení)
+    public void sortPlantsByName() {
+        Collections.sort(plants);
+    }
+
+    // Seřazení podle data poslední zálivky
+    public void sortPlantsByWatering() {
+        plants.sort(Comparator.comparing(Plant::getWatering));
     }
 }
