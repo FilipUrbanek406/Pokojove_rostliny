@@ -9,28 +9,20 @@ public class Plant {
     private LocalDate watering;
     private int frequencyOfWatering;
 
-    public Plant(String name, String notes, LocalDate planted, LocalDate watering, int frequencyOfWatering) {
+    public Plant(String name, String notes, LocalDate planted, LocalDate watering, int frequencyOfWatering) throws PlantException {
         this.name = name;
         this.notes = notes;
         this.planted = planted;
-        this.watering = watering;
-        this.frequencyOfWatering = frequencyOfWatering;
+        setWatering(watering);
+        setFrequencyOfWatering(frequencyOfWatering);
     }
 
-    public Plant(String name, int frequencyOfWatering) {
-        this.name = name;
-        this.notes = "";
-        this.planted = LocalDate.now();
-        this.watering = LocalDate.now();
-        this.frequencyOfWatering = frequencyOfWatering;
+    public Plant(String name, int frequencyOfWatering) throws PlantException {
+        this(name, "", LocalDate.now(), LocalDate.now(), frequencyOfWatering);
     }
 
-    public Plant(String name) {
-        this.name = name;
-        this.notes = "";
-        this.planted = LocalDate.now();
-        this.watering = LocalDate.now();
-        this.frequencyOfWatering = 7;
+    public Plant(String name) throws PlantException {
+        this(name, "", LocalDate.now(), LocalDate.now(), 7);
     }
 
     public String getName() {
@@ -61,7 +53,10 @@ public class Plant {
         return watering;
     }
 
-    public void setWatering(LocalDate watering) {
+    public void setWatering(LocalDate watering) throws PlantException {
+        if (watering.isBefore(planted)) {
+            throw new PlantException("Datum zálivky nesmí být před datem zasazení rostliny. Zadáno: " + watering + "!");
+        }
         this.watering = watering;
     }
 
@@ -69,7 +64,10 @@ public class Plant {
         return frequencyOfWatering;
     }
 
-    public void setFrequencyOfWatering(int frequencyOfWatering) {
+    public void setFrequencyOfWatering(int frequencyOfWatering) throws PlantException {
+        if (frequencyOfWatering <= 0) {
+            throw new PlantException("Frekvence zálivky nesmí být menší nebo rovno 0. Zadáno: " + frequencyOfWatering + "!");
+        }
         this.frequencyOfWatering = frequencyOfWatering;
     }
 
@@ -80,5 +78,4 @@ public class Plant {
     public void doWateringNow() {
         watering = LocalDate.now();
     }
-
 }
