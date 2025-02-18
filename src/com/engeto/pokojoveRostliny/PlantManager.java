@@ -48,6 +48,7 @@ public class PlantManager {
 
     //čtení ze souboru
     public void readPlantManagerFromFile(String fileName, String delimiter) throws PlantManagerReadFileExeption {
+        plants.clear();
         int lineNumber = 0;
         try (Scanner scanner = new Scanner(new BufferedReader(new FileReader(fileName)))) {
             while (scanner.hasNextLine()) {
