@@ -55,7 +55,7 @@ public class Plant implements Comparable<Plant> {
 
     public void setWatering(LocalDate watering) throws PlantException {
         if (watering.isBefore(planted)) {
-            throw new PlantException("Datum zálivky nesmí být před datem zasazení rostliny. Zadáno: " + watering + "!");
+            throw new PlantException("Datum zálivky nesmí být před datem zasazení rostliny. Zadáno: " + watering + "před datem zasazení: " + planted + "!");
         }
         this.watering = watering;
     }
