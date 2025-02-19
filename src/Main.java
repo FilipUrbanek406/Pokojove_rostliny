@@ -44,6 +44,7 @@ public class Main {
         } catch (PlantManagerFileExeption e) {
             System.err.println(e.getMessage());
         }
+
         //7. úkol - Opětovné načtení seznamu květin ze souboru
         try {
             plantManager.readPlantManagerFromFile("resources/kvetiny - novy.txt", "\t");
