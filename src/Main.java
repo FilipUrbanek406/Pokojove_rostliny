@@ -40,14 +40,14 @@ public class Main {
 
         //6. úkol - Uložení seznamu květin do nového souboru
         try {
-            plantManager.writePlantManagerToFile("resources/kvetiny - novy.txt", "\t");
+            plantManager.writePlantManagerToFile("resources/kvetiny - new.txt", "\t");
         } catch (PlantManagerFileExeption e) {
             System.err.println(e.getMessage());
         }
 
         //7. úkol - Opětovné načtení seznamu květin ze souboru
         try {
-            plantManager.readPlantManagerFromFile("resources/kvetiny - novy.txt", "\t");
+            plantManager.readPlantManagerFromFile("resources/kvetiny - new.txt", "\t");
         } catch (PlantManagerFileExeption e) {
             System.err.println(e.getMessage());
         }
