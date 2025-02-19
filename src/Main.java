@@ -4,12 +4,17 @@ import com.engeto.pokojoveRostliny.PlantManager;
 import com.engeto.pokojoveRostliny.PlantManagerFileExeption;
 
 public class Main {
+
+    public static final String FILE_NAME = "resources/kvetiny.txt";
+    public static final String DELIMITER = "\t";
+    public static final String FILE_NAME_NEW = "resources/kvetiny - new.txt";
+
     public static void main(String[] args) {
 
         //1. úkol - Načíst seznam květin ze souboru
         PlantManager plantManager = new PlantManager();
         try {
-            plantManager.readPlantManagerFromFile("resources/kvetiny.txt", "\t");
+            plantManager.readPlantManagerFromFile(FILE_NAME, DELIMITER);
         } catch (PlantManagerFileExeption e) {
             System.err.println(e.getMessage());
         }
@@ -40,14 +45,14 @@ public class Main {
 
         //6. úkol - Uložení seznamu květin do nového souboru
         try {
-            plantManager.writePlantManagerToFile("resources/kvetiny - new.txt", "\t");
+            plantManager.writePlantManagerToFile(FILE_NAME_NEW, DELIMITER);
         } catch (PlantManagerFileExeption e) {
             System.err.println(e.getMessage());
         }
 
         //7. úkol - Opětovné načtení seznamu květin ze souboru
         try {
-            plantManager.readPlantManagerFromFile("resources/kvetiny - new.txt", "\t");
+            plantManager.readPlantManagerFromFile(FILE_NAME_NEW, DELIMITER);
         } catch (PlantManagerFileExeption e) {
             System.err.println(e.getMessage());
         }
