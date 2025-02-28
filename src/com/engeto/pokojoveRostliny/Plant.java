@@ -83,4 +83,9 @@ public class Plant implements Comparable<Plant> {
     public int compareTo(Plant o) {
         return this.name.compareTo(o.name);
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

@@ -11,8 +11,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //1. úkol - Načíst seznam květin ze souboru
         PlantManager plantManager = new PlantManager();
+
+        //1. úkol - Načíst seznam květin ze souboru
         try {
             plantManager.readPlantManagerFromFile(FILE_NAME, DELIMITER);
         } catch (PlantManagerFileExeption e) {
@@ -63,6 +64,15 @@ public class Main {
         System.out.println("Seřazené květiny podle názvu:");
         for (Plant plant : plantManager.getCopyOfPlants()) {
             System.out.println(plant.getName());
+        }
+
+        //Navíc oproti zadání projektu
+        System.out.println("");
+        System.out.println("Rostliny, které je potřeba zalít " + plantManager.getPlantsToWater());
+
+        System.out.println("");
+        for (Plant plant : plantManager.getCopyOfPlants()) {
+            System.out.println("Informace o zálivce: " + plant.getWateringInfo());
         }
     }
 }
