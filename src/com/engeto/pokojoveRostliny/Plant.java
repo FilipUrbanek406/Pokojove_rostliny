@@ -86,6 +86,6 @@ public class Plant implements Comparable<Plant> {
 
     @Override
     public String toString() {
-        return name;
+        return name + " zalitá/ý dne " + watering;
     }
 }
