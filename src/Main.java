@@ -60,20 +60,21 @@ public class Main {
 
         //8. úkol - Seřazení květin a výpis na obrazovku
         plantManager.sortPlantsByName();
-        System.out.println("");
+        System.out.println();
         System.out.println("Seřazené květiny podle názvu:");
         for (Plant plant : plantManager.getCopyOfPlants()) {
             System.out.println(plant.getName());
         }
 
-        System.out.println("řezení podle vaška zálivky:");
+        System.out.println();
+        System.out.println("Řezení podle poslední zálivky:");
         System.out.println(plantManager.sortPlantsByWatering());
 
         //Navíc oproti zadání projektu
-        System.out.println("");
+        System.out.println();
         System.out.println("Rostliny, které je potřeba zalít " + plantManager.getPlantsToWater());
 
-        System.out.println("");
+        System.out.println();
         for (Plant plant : plantManager.getCopyOfPlants()) {
             System.out.println("Informace o zálivce: " + plant.getWateringInfo());
         }
