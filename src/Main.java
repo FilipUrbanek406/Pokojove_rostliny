@@ -22,7 +22,7 @@ public class Main {
 
         //2. úkol - Vypsat informace o zálivcepro pro všechny květiny
         for (Plant plant : plantManager.getCopyOfPlants()) {
-            System.out.println(plant.getName() + " zalitá dne: " + plant.getWatering());
+            System.out.println(plant.getName() + " zalitá/ý dne: " + plant.getWatering());
         }
 
         //3. úkol - Přidat novou květinu
