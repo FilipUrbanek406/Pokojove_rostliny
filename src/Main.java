@@ -66,6 +66,9 @@ public class Main {
             System.out.println(plant.getName());
         }
 
+        System.out.println("řezení podle vaška zálivky:");
+        System.out.println(plantManager.sortPlantsByWatering());
+
         //Navíc oproti zadání projektu
         System.out.println("");
         System.out.println("Rostliny, které je potřeba zalít " + plantManager.getPlantsToWater());

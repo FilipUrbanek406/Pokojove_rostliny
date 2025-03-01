@@ -42,8 +42,9 @@ public class PlantManager {
     }
 
     // Seřazení podle data poslední zálivky
-    public void sortPlantsByWatering() {
+    public List<Plant> sortPlantsByWatering() {
         plants.sort(Comparator.comparing(Plant::getWatering));
+        return plants;
     }
 
     //čtení ze souboru
